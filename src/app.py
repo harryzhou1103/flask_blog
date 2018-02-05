@@ -13,6 +13,7 @@ def initialize_database():
     Database.initialize()
 
 
+
 @app.route("/")
 def home_template():
     return render_template("home.html")
@@ -82,7 +83,7 @@ def blog_posts(blog_id):
     blog = Blog.from_mongo(blog_id)
     posts = blog.get_posts()
 
-    return render_template("post.html", posts=posts, blog_title=blog.title, blog_id=blog_id)
+    return render_template("posts.html", posts=posts, blog_title=blog.title, blog_id=blog_id)
 
 
 @app.route("/posts/new/<string:blog_id>", methods=["POST", "GET"])
